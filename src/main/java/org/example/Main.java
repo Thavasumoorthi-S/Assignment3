@@ -4,58 +4,58 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 class Student {
     private static final Logger LOGGER=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-    String Name;
-    char GRADE;
-    float GPA;
+    String name;
+    char grade;
+    float gpa;
 
-    Student(String Name,char Grade,float GPA)
+    Student(String name,char grade,float gpa)
     {
-        this.Name=Name;
-        this.GRADE=Grade;
-        this.GPA=GPA;
+        this.name=name;
+        this.grade=grade
+        this.gpa=gpa;
     }
-    public void updategpa(float GPA)
+    public void updategpa(float gpa)
     {
-        this.GPA=GPA;
-        if(GPA==6)
+        this.gpa=gpa;
+        if(gpa==6)
         {
-            GRADE='D';
+            grade='D';
         }
-        else if(GPA==7)
+        else if(gpa==7)
         {
-            GRADE='C';
+            grade='C';
         }
-        else if(GPA==8)
+        else if(gpa==8)
         {
-            GRADE='B';
+            grade='B';
         }
-        else if(GPA==9)
+        else if(gpa==9)
         {
-            GRADE='A';
+            grade='A';
         }
-        else if(GPA==10)
+        else if(gpa==10)
         {
-            GRADE='O';
+            grade='O';
         }
     }
     public float studentgpa()
     {
-        return GPA;
+        return gpa;
     }
     public static void main(String[] args)
     {
-        String Name;
-        char GRADE;
-        float GPA;
-        float UPGPA;
+        String name;
+        char grade;
+        float gpa;
+        float upgpa;
         Scanner sc=new Scanner(System.in);
         LOGGER.log(Level.INFO,"Enter the Name: ");
-        Name=sc.nextLine();
+        name=sc.nextLine();
         LOGGER.log(Level.INFO,"Enter the Grade: ");
-        GRADE=sc.next().charAt(0);
+        grade=sc.next().charAt(0);
         LOGGER.log(Level.INFO,"Enter the GPA: ");
-        GPA=sc.nextFloat();
-        Student s=new Student(Name,GRADE,GPA);
+        gpa=sc.nextFloat();
+        Student s=new Student(name,grade,gpa);
         while(true)
         {
             LOGGER.log(Level.INFO,"\n1)Update GPA \n2)Student details \n3)exit");
@@ -64,12 +64,12 @@ class Student {
             if(select==1)
             {
                 LOGGER.log(Level.INFO,"Enter your latest GPA: ");
-                UPGPA=sc.nextFloat();
-                s.updategpa(UPGPA);
+                upgpa=sc.nextFloat();
+                s.updategpa(upgpa);
             }
             else if(select==2)
             {
-                LOGGER.log(Level.INFO,s.Name+" has a ");
+                LOGGER.log(Level.INFO,s.name+" has a ");
                 LOGGER.log(Level.INFO,Float.toString(s.studentgpa()),s.studentgpa());
             }
             else if(select==3)
