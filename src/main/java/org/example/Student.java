@@ -11,7 +11,7 @@ class Student {
     Student(String name,char grade,float gpa)
     {
         this.name=name;
-        this.grade=grade
+        this.grade=grade;
         this.gpa=gpa;
     }
     public void updategpa(float gpa)
@@ -58,23 +58,24 @@ class Student {
         Student s=new Student(name,grade,gpa);
         while(true)
         {
-            LOGGER.log(Level.INFO,"\n1)Update GPA \n2)Student details \n3)exit");
-            LOGGER.log(Level.INFO,"Student choose any one the option in the above ");
-            int select=sc.nextInt();
-            if(select==1)
-            {
-                LOGGER.log(Level.INFO,"Enter your latest GPA: ");
-                upgpa=sc.nextFloat();
-                s.updategpa(upgpa);
+            try {
+                LOGGER.log(Level.INFO, "\n1)Update GPA \n2)Student details \n3)exit");
+                LOGGER.log(Level.INFO, "Student choose any one the option in the above ");
+                int select = sc.nextInt();
+                if (select == 1) {
+                    LOGGER.log(Level.INFO, "Enter your latest GPA: ");
+                    upgpa = sc.nextFloat();
+                    s.updategpa(upgpa);
+                } else if (select == 2) {
+                    LOGGER.log(Level.INFO, s.name + " has a ");
+                    LOGGER.log(Level.INFO, Float.toString(s.studentgpa()), s.studentgpa());
+                } else if (select == 3) {
+                    break;
+                }
             }
-            else if(select==2)
+            catch(InputMismatchException e)
             {
-                LOGGER.log(Level.INFO,s.name+" has a ");
-                LOGGER.log(Level.INFO,Float.toString(s.studentgpa()),s.studentgpa());
-            }
-            else if(select==3)
-            {
-                break;
+                throw new InputMismatchException("please Enter the valid input");
             }
         }
     }
