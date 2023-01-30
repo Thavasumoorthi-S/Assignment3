@@ -48,6 +48,7 @@ class Student {
         char grade;
         float gpa;
         float upgpa;
+        String res;
         Scanner sc=new Scanner(System.in);
         LOGGER.log(Level.INFO,"Enter the Name: ");
         name=sc.nextLine();
@@ -67,7 +68,9 @@ class Student {
                     upgpa = sc.nextFloat();
                     s.updategpa(upgpa);
                 } else if (select == 2) {
-                    LOGGER.log(Level.INFO, s.name + " has a ");
+                    res=s.name;
+                    LOGGER.info(res);
+                    LOGGER.log(Level.INFO,"has a");
                     LOGGER.log(Level.INFO, Float.toString(s.studentgpa()), s.studentgpa());
                 } else if (select == 3) {
                     break;
