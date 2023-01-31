@@ -2,13 +2,13 @@ package org.example;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-class Student {
+class StudentException {
     private static final Logger LOGGER=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     String name;
     char grade;
     float gpa;
 
-    Student(String name,char grade,float gpa)
+    StudentException(String name,char grade,float gpa)
     {
         this.name=name;
         this.grade=grade;
@@ -56,10 +56,9 @@ class Student {
         grade=sc.next().charAt(0);
         LOGGER.log(Level.INFO,"Enter the GPA: ");
         gpa=sc.nextFloat();
-        Student s=new Student(name,grade,gpa);
+        StudentException s=new StudentException(name,grade,gpa);
         while(true)
         {
-            try {
                 LOGGER.log(Level.INFO, "\n1)Update GPA \n2)Student details \n3)exit");
                 LOGGER.log(Level.INFO, "Student choose any one the option in the above ");
                 int select = sc.nextInt();
@@ -68,17 +67,12 @@ class Student {
                     upgpa = sc.nextFloat();
                     s.updategpa(upgpa);
                 } else if (select == 2) {
-                    res=s.name;
+                    res = s.name;
                     LOGGER.info(res);
-                    LOGGER.log(Level.INFO,"has a");
+                    LOGGER.log(Level.INFO, "has a");
                     LOGGER.log(Level.INFO, Float.toString(s.studentgpa()), s.studentgpa());
                 } else if (select == 3) {
                     break;
-                }
-            }
-            catch(InputMismatchException e)
-            {
-                throw new InputMismatchException("please Enter the valid input");
             }
         }
     }
