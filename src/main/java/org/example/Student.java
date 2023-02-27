@@ -62,7 +62,7 @@ class Student{
                 LOGGER.log(Level.INFO, "Student choose any one the option in the above ");
                 int select = sc.nextInt();
                 if (select == 1) {
-                    LOGGER.log(Level.INFO, "Enter your latest grade: ");
+                    LOGGER.info("Enter your latest grade: ");
                     upgrade = sc.next().charAt(0);
                     s.updategpa(upgrade);
                 } else if (select == 2) {
