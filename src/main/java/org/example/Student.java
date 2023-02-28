@@ -48,6 +48,7 @@ class Student{
         char grade;
         float gpa;
         char upgrade;
+        String result;
         Scanner sc=new Scanner(System.in);
         LOGGER.log(Level.INFO,"Enter the Name: ");
         name=sc.nextLine();
@@ -66,7 +67,8 @@ class Student{
                     upgrade = sc.next().charAt(0);
                     s.updategpa(upgrade);
                 } else if (select == 2) {
-                    LOGGER.info(s.studentdetails());
+                    result=""+s.studentdetails();
+                    LOGGER.info(result);
                 } else if (select == 3) {
                     break;
             }
